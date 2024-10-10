@@ -10,7 +10,7 @@ async function fetchProductsByCategory(keyid: string) {
         SELECT c2.title,c2.slug
             FROM category c1
             JOIN category c2 ON FIND_IN_SET(c2.id, c1.cateconcern)
-            WHERE c1.slug = ? AND c1.is_typ = 1
+            WHERE c1.slug = ? AND c1.is_type = 1
 
       
       `, [keyid]);

@@ -118,7 +118,7 @@ export function Product_one({product}:  Props) {
                                 <DialogTitle> <Badge className="text-md"> {product.title}</Badge></DialogTitle>
                           
                                 </DialogHeader>
-                                <div className=" flex justify-center sm:max-w-[400px] sm:max-h-[400px] sm:min-h-[300px] sm:min-w-[300px] lg:min-w-[1024px] lg:min-h-[1024px] ">
+                                <div className="flex justify-center ">
                              
                                 <img
                                    

@@ -1,23 +1,43 @@
-# Sử dụng Node.js bản chính thức
-FROM node:18-alpine
+# Stage Builder
+FROM node:18-alpine AS builder
 
-# Thiết lập thư mục làm việc trong container
 WORKDIR /app
 
 # Sao chép package.json và package-lock.json
 COPY package*.json ./
 
-# Cài đặt dependencies
+# Cài đặt các dependencies
 RUN npm install
 
-# Sao chép toàn bộ mã nguồn vào thư mục làm việc
+# Sao chép toàn bộ mã nguồn vào container
 COPY . .
 
-# Build ứng dụng Next.js
+# Xây dựng ứng dụng Next.js
 RUN npm run build
 
-# Expose port 3000
+# Stage Runner
+FROM node:18-alpine AS runner
+
+WORKDIR /app
+
+# Sao chép package.json và package-lock.json từ builder
+COPY package*.json ./
+
+# Cài đặt chỉ production dependencies
+RUN npm install --only=production
+
+# Sao chép các tệp build từ builder
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/next.config.js ./  
+COPY --from=builder /app/package.json ./
+
+# Thiết lập biến môi trường
+ENV NODE_ENV=production
+
+# Mở cổng mà ứng dụng sẽ chạy
 EXPOSE 3000
 
-# Chạy ứng dụng Next.js
+# Khởi động ứng dụng
 CMD ["npm", "start"]
+

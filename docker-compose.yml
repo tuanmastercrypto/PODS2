@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: PODS
+    ports:
+      - "3336:3306"  # ánh xạ cổng 3336 của máy chủ tới cổng 3306 trong container
+    networks:
+      - my_network
+
+  app:
+    build: .  # Đảm bảo rằng bạn có Dockerfile trong thư mục này
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    env_file:
+      - .env  # Thêm tệp .env để tải biến môi trường
+    environment:
+      NODE_ENV: production  # Đặt biến môi trường NODE_ENV
+    restart: always  # Khởi động lại container nếu có lỗi
+    networks:
+      - my_network
+  
+networks:
+  my_network:
