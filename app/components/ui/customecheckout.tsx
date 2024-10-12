@@ -303,23 +303,19 @@ export default function ViewCheckOut() {
                             
                             
                                 
-                        {/* {email.length == 0?<RainbowButton onClick={()=>handlerequi("Email")}>Check Out PayPal</RainbowButton>:firstName.length == 0?<RainbowButton onClick={()=>handlerequi(" FirstName")}>Check Out PayPal</RainbowButton>:  lastName.length == 0?<RainbowButton onClick={()=>handlerequi("LastName ")}>Check Out PayPal</RainbowButton> :
-                        email.includes('@')?
+                        {email.length == 0?<RainbowButton onClick={()=>handlerequi("Email")}>Check Out PayPal</RainbowButton>:firstName.length == 0?<RainbowButton onClick={()=>handlerequi(" FirstName")}>Check Out PayPal</RainbowButton>:  lastName.length == 0?<RainbowButton onClick={()=>handlerequi("LastName ")}>Check Out PayPal</RainbowButton> :
+                        email.includes('@')?  
+                        <PayPalButton
+                         
+                         amount={totalprice}
+                         onSuccess={handleSuccess}
+                         onError={handleError}
                        
+                       />
+                                
                           :<RainbowButton onClick={()=>handlerequi("Email @")}>Check Out PayPal</RainbowButton>
-                        } */}
+                        }
 
-
-
-
-                      
-                         <PayPalButton
-                          
-                          amount={totalprice}
-                          onSuccess={handleSuccess}
-                          onError={handleError}
-                        
-                        />
                         </div>
                 
                 </CardContent>

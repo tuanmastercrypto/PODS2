@@ -33,7 +33,7 @@ export default function RootLayout({
       style={{padding:"0 !important"}}
       >
       <StoreProvider>
-            <ClerkProvider>
+          
      
          <ThemeProvider
             attribute="class"
@@ -45,18 +45,21 @@ export default function RootLayout({
               <div className="flex min-h-screen w-full flex-col bg-muted/40">
                
                 <div className="">
-                  <Header/>  
-                  <div className="  grid-cols-1 px-1 py-1 md:hidden   mx-2" >
-                    <SearchProductMB/>
-                  </div>
-                  {children}
-                  <Footer/>
+                    <ClerkProvider>
+                        <Header/>  
+                        <div className="  grid-cols-1 px-1 py-1 md:hidden   mx-2" >
+                          <SearchProductMB/>
+                        </div>
+                        {children}
+                        <Footer/>
+
+                    </ClerkProvider>
                 </div>
               </div>
             
             
         </ThemeProvider>
-        </ClerkProvider>
+       
         </StoreProvider>
       </body>
     </html>
