@@ -47,7 +47,7 @@ export function Holidays() {
         <div className="flex justify-center m-2"> 
           <Button variant={"ghost"}>
             <h2 className="font-bold text-md md:text-3xl px-2 py-2 rounded-md m-2 hover:font-black leading-snug text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-pink-600 to-purple-600 ">
-              Holidays svg
+              Holidays svg RELOAD
             </h2>
           </Button>
         </div>
