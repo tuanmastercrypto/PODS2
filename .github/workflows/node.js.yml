@@ -17,7 +17,27 @@ jobs:
       matrix:
         node-version: [20.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
+    env:
+      NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}}
+      CLERK_SECRET_KEY: ${{secrets.CLERK_SECRET_KEY}}
+      NEXT_PUBLIC_PAYPAL_CLIENT_ID: ${{secrets.NEXT_PUBLIC_PAYPAL_CLIENT_ID}}
+      NEXT_PUBLIC_CLERK_SIGN-IN-URL: ${{secrets.NEXT_PUBLIC_CLERK_SIGN-IN-URL}}
+      NEXT_PUBLIC_CLERK_SIGN-UP-URL: ${{secrets.NEXT_PUBLIC_CLERK_SIGN-UP-URL}}
+      NEXT_PUBLIC_SECRET_KEY_TOKEN: ${{secrets.NEXT_PUBLIC_SECRET_KEY_TOKEN}}
+      NEXT_PUBLIC_API_URL: ${{secrets.NEXT_PUBLIC_API_URL}}
+      NEXT_PUBLIC_SITE_URL: ${{secrets.NEXT_PUBLIC_SITE_URL}}
+      NEXT_PUBLIC_MYSQL_HOST: ${{secrets.NEXT_PUBLIC_MYSQL_HOST}}
+      NEXT_PUBLIC_MYSQL_PORT: ${{secrets.NEXT_PUBLIC_MYSQL_PORT}}
+      NEXT_PUBLIC_MYSQL_DATABASE: ${{secrets.NEXT_PUBLIC_MYSQL_DATABASE}}
+      NEXT_PUBLIC_MYSQL_USERNAME: ${{secrets.NEXT_PUBLIC_MYSQL_USERNAME}}
+      NEXT_PUBLIC_MYSQL_PASSWORD: ${{secrets.NEXT_PUBLIC_MYSQL_PASSWORD}}
+      NEXT_PUBLIC_JWT_SECRET: ${{secrets.NEXT_PUBLIC_JWT_SECRET}}
+      NEXT_PUBLIC_EMAIL_ADMIN: ${{secrets.NEXT_PUBLIC_EMAIL_ADMIN}}
+      NEXT_PUBLIC_PASSWORD_ADMIN: ${{secrets.NEXT_PUBLIC_PASSWORD_ADMIN}}
+      NEXT_PUBLIC_SMTP_HOST: ${{secrets.NEXT_PUBLIC_SMTP_HOST}}
+      NEXT_PUBLIC_SMTP_PORT: ${{secrets.NEXT_PUBLIC_SMTP_PORT}}
+      NEXT_PUBLIC_SMTP_USER: ${{secrets.NEXT_PUBLIC_SMTP_USER}}
+      NEXT_PUBLIC_SMTP_PASS: ${{secrets.NEXT_PUBLIC_SMTP_PASS}}
     steps:
     - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
