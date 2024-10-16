@@ -11,7 +11,7 @@ on:
 jobs:
   build:
 
-    runs-on: selft-hosted
+    runs-on:  self-hosted  # Chỉ định sử dụng self-hosted runner
 
     strategy:
       matrix:
